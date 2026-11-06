@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "portofolio-node/index.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["portofolio-node/public/**"] }
+    }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "/portofolio-node/index.js" }]
+}
