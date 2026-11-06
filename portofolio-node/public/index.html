@@ -3,217 +3,763 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio | Web Developer & IT Specialist</title>
+    <title>Rifqy Ali Ridho | Web Developer – Portofolio</title>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
     <!-- NAVBAR -->
-    <nav class="fixed top-0 left-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-slate-800 z-50">
+    <nav class="fixed top-0 left-0 w-full bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80 z-50 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-indigo-400">Portofolio<span class="text-white">.dev</span></a>
-            <div class="space-x-6 hidden md:block text-slate-300 font-medium">
-                <a href="#about" class="hover:text-indigo-400 transition">Tentang</a>
+            <a href="#" class="text-xl font-bold tracking-tight text-white flex items-center gap-2.5 group">
+                <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-sky-500 flex items-center justify-center text-white font-extrabold text-sm shadow-md shadow-indigo-500/30 group-hover:scale-105 transition-transform">RAR</span>
+                <span class="text-slate-100">Rifqy Ali Ridho<span class="text-indigo-400">.dev</span></span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden lg:flex items-center space-x-7 text-xs uppercase tracking-wider font-semibold text-slate-300">
+                <a href="#about" class="hover:text-indigo-400 transition">Profil</a>
+                <a href="#achievements" class="hover:text-indigo-400 transition">HAKI & Prestasi</a>
+                <a href="#projects" class="hover:text-indigo-400 transition">Proyek Unggulan</a>
+                <a href="#experience" class="hover:text-indigo-400 transition">Pengalaman</a>
                 <a href="#skills" class="hover:text-indigo-400 transition">Keahlian</a>
-                <a href="#projects" class="hover:text-indigo-400 transition">Proyek</a>
+                <a href="#education" class="hover:text-indigo-400 transition">Pendidikan</a>
                 <a href="#contact" class="hover:text-indigo-400 transition">Kontak</a>
+            </div>
+
+            <!-- Action Button: Download CV -->
+            <div class="hidden sm:flex items-center space-x-3">
+                <a href="/cv.pdf" download="CV_Rifqy_Ali_Ridho.pdf" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg shadow-md shadow-indigo-600/30 transition transform hover:-translate-y-0.5">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                    <span>Unduh CV (PDF)</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-slate-300 hover:text-white focus:outline-none p-2 rounded-lg" aria-label="Buka Menu">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 px-6 py-4 space-y-3">
+            <a href="#about" class="mobile-nav-link block text-slate-300 hover:text-indigo-400 font-medium py-1">Profil</a>
+            <a href="#achievements" class="mobile-nav-link block text-slate-300 hover:text-indigo-400 font-medium py-1">HAKI & Prestasi</a>
+            <a href="#projects" class="mobile-nav-link block text-slate-300 hover:text-indigo-400 font-medium py-1">Proyek Unggulan</a>
+            <a href="#experience" class="mobile-nav-link block text-slate-300 hover:text-indigo-400 font-medium py-1">Pengalaman Kerja</a>
+            <a href="#skills" class="mobile-nav-link block text-slate-300 hover:text-indigo-400 font-medium py-1">Keahlian Teknis</a>
+            <a href="#education" class="mobile-nav-link block text-slate-300 hover:text-indigo-400 font-medium py-1">Pendidikan & Sertifikasi</a>
+            <a href="#contact" class="mobile-nav-link block text-slate-300 hover:text-indigo-400 font-medium py-1">Kontak</a>
+            <div class="pt-2 border-t border-slate-800 flex gap-2">
+                <a href="/cv.pdf" download="CV_Rifqy_Ali_Ridho.pdf" class="w-full text-center px-4 py-2.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg shadow-md transition flex items-center justify-center gap-1.5">
+                    <i data-lucide="download" class="w-4 h-4"></i>
+                    <span>Unduh Curriculum Vitae (PDF)</span>
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="min-h-screen flex items-center justify-center pt-20 px-6">
-        <div class="max-w-4xl text-center">
-            <span class="px-4 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 inline-block mb-4">
-                Available for Hire / Internship
-            </span>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
-                Halo, Saya <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Web Developer</span>
-            </h1>
-            <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-                Fokus membangun aplikasi web yang responsif, terstruktur, dan efisien menggunakan ekosistem Node.js, JavaScript, dan teknologi modern lainnya.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4 mb-8">
-                <a href="#projects" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-lg shadow-lg shadow-indigo-500/25 transition">
-                    Lihat Proyek
-                </a>
-                <a href="#contact" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium rounded-lg transition">
-                    Hubungi Saya
-                </a>
-                <a href="/images/cv.pdf" download class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium rounded-lg transition">
-                    Unduh CV (PDF)
-                </a>
-            </div>
+    <section class="min-h-screen flex items-center justify-center pt-28 pb-16 px-6 relative overflow-hidden">
+        <!-- Ambient Light Accents -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <!-- Kontak & Sosmed Hero -->
-            <div class="flex flex-wrap justify-center items-center gap-4 pt-4 border-t border-slate-800/80">
-                <a href="mailto:alirifqy85@gmail.com" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-indigo-400 border border-slate-700/60 transition text-sm">
-                    <i data-lucide="mail" class="w-4 h-4 text-indigo-400"></i>
-                    <span>alirifqy85@gmail.com</span>
-                </a>
-                <a href="https://wa.me/6285712159280" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-emerald-400 border border-slate-700/60 transition text-sm">
-                    <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
-                    <span>WhatsApp</span>
-                </a>
-                <a href="https://github.com/aliridho51" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/60 transition text-sm">
-                    <i data-lucide="github" class="w-4 h-4"></i>
-                    <span>GitHub</span>
-                </a>
-            </div>
-        </div>
-    </section>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Left Column: Identity & Value Proposition -->
+            <div class="md:col-span-7 text-left">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/25 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Lulusan Sistem Informasi | Terbuka untuk Rekrutmen Profesional</span>
+                </div>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-20 px-6 bg-slate-800/50">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-8 text-center">Tentang Saya</h2>
-            <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700/50 leading-relaxed text-slate-300">
-                <p class="mb-4">
-                    Saya adalah lulusan bidang Sistem Informasi yang berfokus pada pengembangan perangkat lunak berbasis web. Berpengalaman dalam merancang arsitektur aplikasi, pengelolaan database, hingga pembuatan antarmuka pengguna yang terstruktur.
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-3">
+                    Rifqy Ali Ridho
+                </h1>
+
+                <p class="text-xl sm:text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-emerald-300 mb-6">
+                    Web Developer | Lulusan Sistem Informasi
                 </p>
-                <p>
-                    Selain *coding*, saya juga memiliki ketertarikan pada pemodelan sistem (BPMN & UML) serta analisis alur kerja sistem informasi.
+
+                <!-- Professional Summary -->
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
+                    Lulusan Sistem Informasi yang berfokus pada <strong class="text-white font-medium">pengembangan sistem berbasis web, pengelolaan basis data, dan analisis data</strong>. Memiliki kompetensi mendalam dalam merancang dan membangun aplikasi menggunakan ekosistem <strong class="text-indigo-300 font-medium">PHP, Python, dan JavaScript (Laravel, Next.js, CodeIgniter)</strong>. Berpengalaman mengoptimalkan performa website instansi pemerintah dan mengerjakan kebutuhan desain visual, serta pencipta terdaftar <strong class="text-emerald-300 font-medium">Hak Cipta Perangkat Lunak</strong> di Kementerian Hukum dan HAM RI.
                 </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center">Tech Stack & Tools</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="p-4 bg-slate-800 border border-slate-700/50 rounded-xl text-center">
-                    <p class="font-semibold text-indigo-400">Node.js / Express</p>
-                    <p class="text-xs text-slate-400 mt-1">Backend Runtime</p>
+                <!-- Call to Action Buttons -->
+                <div class="flex flex-wrap items-center gap-4 mb-8">
+                    <a href="/cv.pdf" download="CV_Rifqy_Ali_Ridho.pdf" class="inline-flex items-center gap-2.5 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl shadow-lg shadow-indigo-600/30 transition transform hover:-translate-y-0.5 text-sm">
+                        <i data-lucide="file-down" class="w-4 h-4"></i>
+                        <span>Unduh CV Resmi (PDF)</span>
+                    </a>
+                    <a href="#projects" class="inline-flex items-center gap-2 px-6 py-3.5 bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 font-semibold rounded-xl transition hover:border-slate-500 text-sm">
+                        <span>Lihat Karya Sistem MBG</span>
+                        <i data-lucide="arrow-down" class="w-4 h-4 text-indigo-400"></i>
+                    </a>
+                    <a href="https://wa.me/6285712159280" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-600/90 hover:bg-emerald-600 text-white font-semibold rounded-xl shadow-lg shadow-emerald-600/25 transition text-sm">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>WhatsApp</span>
+                    </a>
                 </div>
-                <div class="p-4 bg-slate-800 border border-slate-700/50 rounded-xl text-center">
-                    <p class="font-semibold text-indigo-400">JavaScript / PHP</p>
-                    <p class="text-xs text-slate-400 mt-1">Language</p>
-                </div>
-                <div class="p-4 bg-slate-800 border border-slate-700/50 rounded-xl text-center">
-                    <p class="font-semibold text-indigo-400">Tailwind CSS</p>
-                    <p class="text-xs text-slate-400 mt-1">Frontend Styling</p>
-                </div>
-                <div class="p-4 bg-slate-800 border border-slate-700/50 rounded-xl text-center">
-                    <p class="font-semibold text-indigo-400">MySQL / Git</p>
-                    <p class="text-xs text-slate-400 mt-1">Database & Version Control</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="py-20 px-6 bg-slate-800/50">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-10 text-center">Proyek Unggulan</h2>
-            <!-- Wadah tempat kartu proyek akan ditampilkan oleh JavaScript -->
-            <div id="projects-container" class="grid md:grid-cols-2 gap-6">
-                <p class="text-slate-400 text-center col-span-2">Memuat data proyek...</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Mari Terhubung & Bekerja Sama</h2>
-            <p class="text-slate-400 mb-10 max-w-xl mx-auto">
-                Saya terbuka untuk peluang kerja penuh waktu, magang, maupun proyek freelance. Jangan ragu untuk menghubungi saya!
-            </p>
-
-            <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-                <!-- WhatsApp -->
-                <a href="https://wa.me/6285712159280" target="_blank" rel="noopener noreferrer" class="p-6 bg-slate-800 border border-slate-700 hover:border-emerald-500/50 rounded-2xl flex flex-col items-center justify-center transition group shadow-lg">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3 group-hover:scale-110 transition">
-                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                <!-- Verified Contact Metadata -->
+                <div class="flex flex-wrap items-center gap-3 pt-6 border-t border-slate-800 text-xs text-slate-300">
+                    <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-rose-400"></i>
+                        <span>Rembang, Indonesia</span>
                     </div>
-                    <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold">WhatsApp</span>
-                    <span class="text-sm font-medium text-white mt-1 group-hover:text-emerald-400 transition">0857-1215-9280</span>
+                    <a href="mailto:rifqyali@gmail.com" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-indigo-500/50 hover:text-white transition">
+                        <i data-lucide="mail" class="w-3.5 h-3.5 text-indigo-400"></i>
+                        <span>rifqyali@gmail.com</span>
+                    </a>
+                    <a href="tel:+6285712159280" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 hover:text-white transition">
+                        <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        <span>(+62) 857-1215-9280</span>
+                    </a>
+                    <a href="https://github.com/aliridho51" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-600 hover:text-white transition">
+                        <i data-lucide="github" class="w-3.5 h-3.5 text-slate-400"></i>
+                        <span>github.com/aliridho51</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Professional Portrait -->
+            <div class="md:col-span-5 flex justify-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1.5 bg-gradient-to-tr from-indigo-600 via-sky-500 to-emerald-500 rounded-3xl blur-xl opacity-35 group-hover:opacity-60 transition duration-500"></div>
+
+                    <div class="relative bg-slate-900/90 border border-slate-700/80 p-3 sm:p-3.5 rounded-3xl shadow-2xl backdrop-blur-sm">
+                        <div class="w-64 sm:w-72 md:w-80 h-80 sm:h-96 md:h-[26rem] overflow-hidden rounded-2xl bg-slate-800">
+                            <img 
+                                src="/images/profile.jpg" 
+                                alt="Foto Resmi Rifqy Ali Ridho" 
+                                class="w-full h-full object-cover object-top filter contrast-[1.03] group-hover:scale-105 transition duration-500"
+                            >
+                        </div>
+
+                        <!-- Badge Top Right -->
+                        <div class="absolute -top-3.5 -right-3.5 bg-slate-900/95 border border-indigo-500/50 px-3.5 py-1.5 rounded-xl shadow-xl backdrop-blur-md flex items-center gap-2">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-indigo-400"></i>
+                            <span class="text-xs font-semibold text-slate-200">Hak Cipta Kemenkumham</span>
+                        </div>
+
+                        <!-- Badge Bottom Left -->
+                        <div class="absolute -bottom-3.5 -left-3.5 bg-slate-900/95 border border-emerald-500/50 px-3.5 py-1.5 rounded-xl shadow-xl backdrop-blur-md flex items-center gap-2">
+                            <i data-lucide="graduation-cap" class="w-4 h-4 text-emerald-400"></i>
+                            <span class="text-xs font-semibold text-slate-200">S1 Sistem Informasi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: INTELLECTUAL PROPERTY & ACHIEVEMENTS (HAKI KEMENKUMHAM) -->
+    <section id="achievements" class="py-20 px-6 bg-gradient-to-b from-indigo-950/20 via-slate-900/50 to-slate-950 border-t border-b border-indigo-500/20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold tracking-widest text-indigo-400 uppercase bg-indigo-500/10 border border-indigo-500/25 px-4 py-1.5 rounded-full inline-block">
+                    Pencapaian & Hak Kekayaan Intelektual (HAKI)
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mt-4 tracking-tight">Karya Cipta Perangkat Lunak Terdaftar</h2>
+                <div class="w-16 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Spotlight Card HAKI -->
+            <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/40 rounded-3xl border border-indigo-500/30 p-8 md:p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+                    <div class="lg:col-span-8">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-semibold mb-3">
+                            <i data-lucide="award" class="w-4 h-4 text-indigo-400"></i>
+                            <span>Kementerian Hukum dan Hak Asasi Manusia Republik Indonesia</span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                            Sistem Informasi Monitoring Distribusi Program Makan Bergizi Gratis (SISMOP-PROMA)
+                        </h3>
+                        <p class="text-sm font-semibold text-emerald-400 mb-4">
+                            Nomor Pencatatan: 001385090 • Juli 2026
+                        </p>
+                        <p class="text-slate-300 text-sm md:text-base leading-relaxed mb-6">
+                            Merancang dan mengembangkan secara mandiri arsitektur sistem perangkat lunak aplikasi <em>"Free Nutritious Meal Program Distribution Monitoring Information System"</em> (SISMOP-PROMA). Sistem ini secara resmi terdaftar dan dilindungi undang-undang hak cipta Republik Indonesia dengan <strong>Rifqy Ali Ridho</strong> sebagai pencipta perangkat lunak.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-slate-800 border border-slate-700 text-indigo-300 px-3 py-1 rounded-lg font-medium">Laravel 12 (PHP 8.2)</span>
+                            <span class="text-xs bg-slate-800 border border-slate-700 text-indigo-300 px-3 py-1 rounded-lg font-medium">MySQL</span>
+                            <span class="text-xs bg-slate-800 border border-slate-700 text-indigo-300 px-3 py-1 rounded-lg font-medium">Tailwind CSS v4</span>
+                            <span class="text-xs bg-slate-800 border border-slate-700 text-indigo-300 px-3 py-1 rounded-lg font-medium">Autentikasi Multi-Peran</span>
+                            <span class="text-xs bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 px-3 py-1 rounded-lg font-medium">Surat Pencatatan Ciptaan Terbit</span>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 bg-slate-800/60 border border-slate-700/80 p-6 rounded-2xl text-center">
+                        <div class="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mx-auto mb-4">
+                            <i data-lucide="file-check-2" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-base font-bold text-white mb-1">Status Ciptaan Terverifikasi</h4>
+                        <p class="text-xs text-slate-400 mb-4">Direktorat Jenderal Kekayaan Intelektual (DJKI), Kemenkumham RI</p>
+                        <a href="https://github.com/aliridho51/mbg_skripsi" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl text-xs shadow-md transition">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                            <span>Lihat Repositori di GitHub</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: FEATURED PROJECT (SHOWCASE NYATA SISTEM DISTRIBUSI MBG) -->
+    <section id="projects" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1 rounded-full">Proyek Unggulan Utama</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 tracking-tight">Karya Nyata Sistem Distribusi MBG</h2>
+                <div class="w-12 h-1 bg-emerald-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-400 text-sm md:text-base mt-4">
+                    Tangkapan layar asli dan rincian arsitektur teknis dari sistem informasi yang dirancang dan dibangun secara mandiri.
+                </p>
+            </div>
+
+            <!-- Wadah Showcase Proyek Asli yang dimuat dari API -->
+            <div id="projects-container">
+                <div class="text-center py-12">
+                    <div class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-emerald-500 border-t-transparent mb-3"></div>
+                    <p class="text-slate-400 text-sm">Memuat data teknis sistem...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: WORK EXPERIENCE (PENGALAMAN KERJA DARI CV) -->
+    <section id="experience" class="py-24 px-6 bg-slate-900/40 border-t border-b border-slate-800/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold tracking-wider text-indigo-400 uppercase bg-indigo-500/10 border border-indigo-500/20 px-3.5 py-1 rounded-full">Rekam Jejak Profesional</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 tracking-tight">Pengalaman Kerja</h2>
+                <div class="w-12 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-400 text-sm md:text-base mt-4">
+                    Pengalaman kerja magang dalam pengembangan web instansi pemerintahan dan eksekusi grafis industri.
+                </p>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Experience 1: Diskominfo Gresik -->
+                <div class="bg-slate-900 border border-slate-800 hover:border-indigo-500/40 rounded-2xl p-8 transition shadow-xl relative">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/20">Instansi Pemerintah Daerah</span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mt-2">Dinas Komunikasi dan Informatika (Diskominfo) Kabupaten Gresik</h3>
+                            <p class="text-indigo-300 font-semibold text-sm mt-0.5">Web Developer (Intern)</p>
+                        </div>
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium self-start md:self-auto border border-slate-700">
+                            <i data-lucide="calendar" class="w-4 h-4 text-indigo-400"></i>
+                            <span>Agustus 2024 – September 2024</span>
+                        </div>
+                    </div>
+                    <ul class="mt-6 space-y-3.5 text-slate-300 text-sm leading-relaxed">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Pengembangan Fitur Web:</strong> Mengembangkan dan mengimplementasikan fitur-fitur baru pada portal website resmi instansi guna meningkatkan fungsionalitas sistem dan kenyamanan interaksi pengguna secara menyeluruh.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Pengujian & Debugging Sistem:</strong> Menjalankan proses pengujian komprehensif (*system testing*) dan *debugging* untuk memastikan stabilitas aplikasi serta meminimalisir potensi kendala teknis pada platform web.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Optimasi Kecepatan & Responsivitas:</strong> Mengoptimalkan kecepatan pemuatan website (*load speed optimization*) dan menjamin kompatibilitas tampilan lintas platform yang konsisten di berbagai perangkat (*cross-platform display compatibility*).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Pemeliharaan & Manajemen Konten CMS:</strong> Mengelola pemeliharaan sistem berkala serta memperbarui konten informasi digital publik secara berkala memanfaatkan platform CMS WordPress dan Blogger.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Experience 2: Percetakan Albab -->
+                <div class="bg-slate-900 border border-slate-800 hover:border-sky-500/40 rounded-2xl p-8 transition shadow-xl relative">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-md border border-sky-500/20">Industri Percetakan & Multimedia</span>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mt-2">Percetakan Albab</h3>
+                            <p class="text-sky-300 font-semibold text-sm mt-0.5">Graphic Designer (Intern)</p>
+                        </div>
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-medium self-start md:self-auto border border-slate-700">
+                            <i data-lucide="calendar" class="w-4 h-4 text-sky-400"></i>
+                            <span>Februari 2021 – April 2021</span>
+                        </div>
+                    </div>
+                    <ul class="mt-6 space-y-3.5 text-slate-300 text-sm leading-relaxed">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Desain Materi Promosi Cetak:</strong> Merancang dan memproduksi materi visual promosi cetak komersial, termasuk brosur, spanduk (banner), dan poster menggunakan CorelDRAW dan Adobe Photoshop.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Operasi Pre-Press Standar Tinggi:</strong> Menjalankan operasi persiapan pra-cetak (*pre-press operations*), mencakup kalibrasi profil warna, penyesuaian tata letak (*layout adjustments*), dan konfigurasi format file untuk memenuhi standar produksi industri yang ketat.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Kolaborasi Teknis Produksi:</strong> Berkolaborasi secara efektif dengan tim teknisi mesin cetak guna memastikan presisi warna dan resolusi tinggi pada hasil cetak akhir sesuai spesifikasi klien.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-5 h-5 text-sky-400 flex-shrink-0 mt-0.5"></i>
+                            <span><strong>Dokumentasi Aset Multimedia Komersial:</strong> Mengelola dokumentasi komersial melalui penangkapan aset foto dan video profesional untuk mendukung kebutuhan materi kampanye promosi produk.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: TECHNICAL SKILLS (DISESUAIKAN DENGAN CV) -->
+    <section id="skills" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold tracking-wider text-indigo-400 uppercase bg-indigo-500/10 border border-indigo-500/20 px-3.5 py-1 rounded-full">Katalog Kompetensi</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 tracking-tight">Keahlian Teknis Sesuai CV</h2>
+                <div class="w-12 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Group 1: Programming & Web Dev -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/40 transition">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4">
+                        <i data-lucide="code-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-2">Programming & Web Dev</h3>
+                    <p class="text-xs text-slate-400 mb-4">Bahasa pemrograman dan framework pengembangan aplikasi web.</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-indigo-300">PHP (Laravel, CI)</span>
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-indigo-300">Python</span>
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-indigo-300">JavaScript</span>
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-indigo-300">Next.js</span>
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-indigo-300">HTML & CSS</span>
+                    </div>
+                </div>
+
+                <!-- Group 2: Database Management -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-2">Database Management</h3>
+                    <p class="text-xs text-slate-400 mb-4">Pengelolaan data terstruktur, skema relasional, dan optimasi query.</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-emerald-300">MySQL</span>
+                    </div>
+                </div>
+
+                <!-- Group 3: Tools & Version Control -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/40 transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+                        <i data-lucide="git-branch" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-2">Tools & Version Control</h3>
+                    <p class="text-xs text-slate-400 mb-4">Instrumen kontrol versi, penyuntingan kode, dan produktivitas.</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-amber-300">Git</span>
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-amber-300">GitHub</span>
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-amber-300">Visual Studio Code</span>
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-amber-300">Microsoft Office</span>
+                    </div>
+                </div>
+
+                <!-- Group 4: Visual Design & Multimedia -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 hover:border-rose-500/40 transition">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
+                        <i data-lucide="palette" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-2">Visual Design & Media</h3>
+                    <p class="text-xs text-slate-400 mb-4">Desain grafis, persiapan cetak industri, dan aset multimedia.</p>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-rose-300">Adobe Photoshop</span>
+                        <span class="text-xs font-medium px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-rose-300">CorelDRAW</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: EDUCATION, CERTIFICATIONS & ORGANIZATIONS -->
+    <section id="education" class="py-24 px-6 bg-slate-900/40 border-t border-b border-slate-800/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold tracking-wider text-indigo-400 uppercase bg-indigo-500/10 border border-indigo-500/20 px-3.5 py-1 rounded-full">Kualifikasi Akademik</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 tracking-tight">Pendidikan & Sertifikasi Resmi</h2>
+                <div class="w-12 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+                <!-- Left: Formal Education -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2 mb-6">
+                        <i data-lucide="graduation-cap" class="w-5 h-5 text-indigo-400"></i>
+                        <span>Pendidikan Formal</span>
+                    </h3>
+
+                    <!-- Education 1: Unipdu -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 relative">
+                        <div class="flex justify-between items-start gap-4 mb-2">
+                            <div>
+                                <h4 class="text-lg font-bold text-white">Universitas Pesantren Tinggi Darul Ulum Jombang</h4>
+                                <p class="text-sm font-semibold text-indigo-400">Sarjana Sistem Informasi (Bachelor of Information Systems)</p>
+                            </div>
+                            <span class="text-xs bg-slate-800 border border-slate-700 text-slate-300 px-3 py-1 rounded-md font-medium whitespace-nowrap">2022 – 2026</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                            Menyelesaikan studi dengan konsentrasi pada pengembangan sistem informasi, manajemen basis data, dan pemrograman aplikasi perangkat lunak.
+                        </p>
+                    </div>
+
+                    <!-- Education 2: SMK -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 relative">
+                        <div class="flex justify-between items-start gap-4 mb-2">
+                            <div>
+                                <h4 class="text-lg font-bold text-white">SMK Sunan Drajat Lamongan</h4>
+                                <p class="text-sm font-semibold text-sky-400">Jurusan Multimedia</p>
+                            </div>
+                            <span class="text-xs bg-slate-800 border border-slate-700 text-slate-300 px-3 py-1 rounded-md font-medium whitespace-nowrap">2019 – 2022</span>
+                        </div>
+                        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+                            Jurusan Multimedia.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Certifications & Organizations -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2 mb-6">
+                        <i data-lucide="award" class="w-5 h-5 text-emerald-400"></i>
+                        <span>Sertifikasi & Pengalaman Organisasi</span>
+                    </h3>
+
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Sertifikasi & Uji Kompetensi:</h4>
+                        
+                        <div class="pb-3 border-b border-slate-800 flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">TOEFL ITP Official Score Report (Score: 317)</p>
+                                <p class="text-xs text-slate-400">Educational Testing Service (ETS) • Mei 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="pb-3 border-b border-slate-800 flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">Basic English Online Course for Programmer (Nilai: 94/100)</p>
+                                <p class="text-xs text-slate-400">Yureka Education Center (YEC) • Oktober 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">Office Application (Ms. Office) & Internet Training Certificate</p>
+                                <p class="text-xs text-slate-400">Puskomnet Unipdu • Desember 2023</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Pengalaman Kepanitiaan:</h4>
+                        
+                        <div class="pb-3 border-b border-slate-800 flex items-start gap-3">
+                            <i data-lucide="users" class="w-4 h-4 text-indigo-400 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">Panitia East Java Saintek Math Olympiad 2025</p>
+                                <p class="text-xs text-slate-400">BEM Fakultas Sains & Teknologi Unipdu • Februari 2025</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="users" class="w-4 h-4 text-indigo-400 flex-shrink-0 mt-1"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">Panitia East Java ESPORT Competition Season V 2025</p>
+                                <p class="text-xs text-slate-400">BEM Fakultas Sains & Teknologi Unipdu • Februari 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACT & CV DOWNLOAD CALLOUT -->
+    <section id="contact" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1 rounded-full">Inisiasi Kerja Sama</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mt-4 tracking-tight">Hubungi Rifqy Ali Ridho</h2>
+                <div class="w-12 h-1 bg-indigo-500 mx-auto mt-4 rounded-full"></div>
+                <p class="text-slate-400 text-sm md:text-base mt-4">
+                    Saya siap memberikan kontribusi maksimal dan berkolaborasi dalam tim profesional Anda. Silakan hubungi kontak resmi di bawah ini.
+                </p>
+            </div>
+
+            <!-- Contact Cards matching CV -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+                <!-- Location -->
+                <div class="p-6 bg-slate-900 border border-slate-800 rounded-2xl flex flex-col items-center text-center shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
+                        <i data-lucide="map-pin" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400">Domisili</span>
+                    <span class="text-sm font-bold text-white mt-1">Rembang, Indonesia</span>
+                    <span class="text-xs text-slate-500 mt-1">Jawa Tengah</span>
+                </div>
+
+                <!-- Phone / WhatsApp -->
+                <a href="https://wa.me/6285712159280" target="_blank" rel="noopener noreferrer" class="p-6 bg-slate-900 border border-slate-800 hover:border-emerald-500/60 rounded-2xl flex flex-col items-center text-center transition group shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                        <i data-lucide="phone" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400">Telepon / WA</span>
+                    <span class="text-sm font-bold text-white mt-1 group-hover:text-emerald-400 transition">(+62) 857-1215-9280</span>
+                    <span class="text-xs text-slate-500 mt-1">Respons Cepat</span>
                 </a>
 
                 <!-- Email -->
-                <a href="mailto:alirifqy85@gmail.com" class="p-6 bg-slate-800 border border-slate-700 hover:border-indigo-500/50 rounded-2xl flex flex-col items-center justify-center transition group shadow-lg">
-                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                <a href="mailto:rifqyali@gmail.com" class="p-6 bg-slate-900 border border-slate-800 hover:border-indigo-500/60 rounded-2xl flex flex-col items-center text-center transition group shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mb-4 group-hover:scale-110 transition">
                         <i data-lucide="mail" class="w-6 h-6"></i>
                     </div>
-                    <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Email</span>
-                    <span class="text-xs font-medium text-white mt-1 truncate max-w-[150px] group-hover:text-indigo-400 transition">alirifqy85@gmail.com</span>
+                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400">Email Resmi</span>
+                    <span class="text-sm font-bold text-white mt-1 truncate max-w-[170px] group-hover:text-indigo-400 transition">rifqyali@gmail.com</span>
+                    <span class="text-xs text-slate-500 mt-1">Korespondensi Formal</span>
                 </a>
 
                 <!-- GitHub -->
-                <a href="https://github.com/aliridho51" target="_blank" rel="noopener noreferrer" class="p-6 bg-slate-800 border border-slate-700 hover:border-slate-400 rounded-2xl flex flex-col items-center justify-center transition group shadow-lg">
-                    <div class="w-12 h-12 rounded-xl bg-slate-700/50 text-slate-300 flex items-center justify-center mb-3 group-hover:scale-110 transition">
+                <a href="https://github.com/aliridho51" target="_blank" rel="noopener noreferrer" class="p-6 bg-slate-900 border border-slate-800 hover:border-slate-500 rounded-2xl flex flex-col items-center text-center transition group shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-slate-800 text-slate-300 flex items-center justify-center mb-4 group-hover:scale-110 transition">
                         <i data-lucide="github" class="w-6 h-6"></i>
                     </div>
-                    <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold">GitHub</span>
-                    <span class="text-sm font-medium text-white mt-1 group-hover:text-slate-200 transition">aliridho51</span>
+                    <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400">GitHub</span>
+                    <span class="text-sm font-bold text-white mt-1 group-hover:text-slate-300 transition">aliridho51</span>
+                    <span class="text-xs text-slate-500 mt-1">Repositori Kode</span>
                 </a>
             </div>
 
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://wa.me/6285712159280" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl transition shadow-lg shadow-emerald-500/25">
-                    <i data-lucide="send" class="w-5 h-5"></i> Chat via WhatsApp
-                </a>
-                <a href="mailto:alirifqy85@gmail.com" class="inline-flex items-center gap-2 px-8 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition shadow-lg shadow-indigo-500/25">
-                    <i data-lucide="mail" class="w-5 h-5"></i> Kirim Email
-                </a>
+            <!-- CV Download Banner -->
+            <div class="bg-gradient-to-r from-indigo-950/60 via-slate-900 to-indigo-950/60 border border-indigo-500/30 rounded-3xl p-8 md:p-10 text-center shadow-2xl relative overflow-hidden">
+                <div class="max-w-2xl mx-auto">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="file-text" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Dapatkan Berkas Curriculum Vitae Lengkap</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                        Unduh berkas CV resmi Rifqy Ali Ridho dalam format PDF untuk membaca rincian pengalaman kerja, riwayat pendidikan, dan kepemilikan Hak Cipta Perangkat Lunak.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="/cv.pdf" download="CV_Rifqy_Ali_Ridho.pdf" class="inline-flex items-center gap-2.5 px-8 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/30 transition transform hover:-translate-y-0.5 text-sm">
+                            <i data-lucide="download" class="w-4 h-4"></i>
+                            <span>Unduh CV Rifqy Ali Ridho (PDF)</span>
+                        </a>
+                        <a href="/cv.pdf" target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 bg-slate-800 hover:bg-slate-750 text-slate-200 border border-slate-700 font-semibold rounded-xl transition text-sm">
+                            <i data-lucide="eye" class="w-4 h-4 text-indigo-400"></i>
+                            <span>Pratinjau di Tab Baru</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-6 border-t border-slate-800 text-center text-slate-500 text-sm">
-        &copy; 2026 Rifqy Ali. Built with Node.js & Express.
+    <footer class="py-8 border-t border-slate-900 bg-slate-950 text-center text-slate-500 text-xs">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Rifqy Ali Ridho. Seluruh hak cipta dilindungi undang-undang.</p>
+            <p class="flex items-center gap-1.5">
+                <span>Ditenagai oleh</span>
+                <span class="text-indigo-400 font-semibold">Node.js, Express & Tailwind CSS</span>
+            </p>
+        </div>
     </footer>
 
+    <!-- SCRIPTS -->
     <script>
         // Inisialisasi ikon Lucide
         lucide.createIcons();
 
-        // Mengambil data proyek dari API Node.js secara dinamis
-        fetch('/api/projects')
-            .then(response => response.json())
-            .then(data => {
-                const container = document.getElementById('projects-container');
-                container.innerHTML = ''; // bersihkan teks loading
+        // Toggle Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-                data.forEach(project => {
-                    // Buat tag badge teknologi
-                    const techBadges = project.tech.map(t => 
-                        `<span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2.5 py-1 rounded-md font-medium">${t}</span>`
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // Pengambilan data proyek secara asinkron dari REST API Express
+        fetch('/api/projects')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Respons jaringan tidak valid');
+                }
+                return response.json();
+            })
+            .then(projects => {
+                const container = document.getElementById('projects-container');
+                container.innerHTML = '';
+
+                if (!projects || projects.length === 0) {
+                    container.innerHTML = '<p class="text-slate-400 text-center">Belum ada proyek yang dimuat.</p>';
+                    return;
+                }
+
+                // Render showcase mendalam untuk proyek MBG
+                projects.forEach(project => {
+                    const toolsBadges = (project.tools || project.tech || []).map(tool => 
+                        `<span class="text-xs bg-slate-800 border border-slate-700 text-emerald-300 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                            <span>${tool}</span>
+                        </span>`
                     ).join('');
 
-                    // Buat kartu proyek
-                    const card = `
-                        <div class="bg-slate-800 rounded-xl border border-slate-700/50 overflow-hidden hover:border-indigo-500/50 transition duration-300 flex flex-col justify-between">
-                            <div>
-                                <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover border-b border-slate-700/50" onerror="this.src='https://via.placeholder.com/600x300?text=Preview+Proyek'">
-                                <div class="p-6">
-                                    <span class="text-xs text-indigo-400 font-semibold uppercase tracking-wider">${project.category}</span>
-                                    <h3 class="text-xl font-bold mt-1 mb-2 text-white">${project.title}</h3>
-                                    <p class="text-slate-400 text-sm mb-4 leading-relaxed">${project.description}</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        ${techBadges}
-                                    </div>
+                    const featureItems = (project.features || []).map(feat => {
+                        const parts = feat.split(':');
+                        const title = parts[0];
+                        const desc = parts.slice(1).join(':');
+                        return `
+                            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-800/40 border border-slate-800">
+                                <div class="w-5 h-5 rounded-md bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <div class="text-xs sm:text-sm">
+                                    <strong class="text-white block font-semibold mb-0.5">${title}</strong>
+                                    <span class="text-slate-400 leading-relaxed">${desc}</span>
                                 </div>
                             </div>
-                            <div class="px-6 pb-6 pt-0 flex gap-4 text-sm font-semibold">
-                                <a href="${project.demoUrl}" target="_blank" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1">Live Demo &rarr;</a>
-                                <a href="${project.githubUrl}" target="_blank" class="text-slate-400 hover:text-white flex items-center gap-1">Source Code</a>
+                        `;
+                    }).join('');
+
+                    const showcaseHtml = `
+                        <div class="bg-slate-900 rounded-3xl border border-slate-800 overflow-hidden shadow-2xl">
+                            
+                            <!-- Header Bar Proyek -->
+                            <div class="px-8 py-5 border-b border-slate-800 bg-slate-900/80 flex flex-wrap justify-between items-center gap-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-600/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">
+                                        <i data-lucide="utensils" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white tracking-tight">${project.title}</h3>
+                                        <p class="text-xs text-emerald-400 font-semibold">${project.category}</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 flex items-center gap-1.5">
+                                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                                        <span>No. Pencatatan 001385090</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Konten Grid: Screenshot Asli vs Uraian Arsitektur Teknis -->
+                            <div class="p-6 md:p-10 grid lg:grid-cols-12 gap-10 items-center">
+                                
+                                <!-- Kolom Kiri: Screenshot Asli -->
+                                <div class="lg:col-span-5 flex flex-col items-center">
+                                    <div class="relative w-full max-w-sm rounded-2xl p-2 bg-gradient-to-b from-slate-800 to-slate-900 border border-slate-700/80 shadow-2xl">
+                                        <div class="flex items-center gap-1.5 px-3 py-2 border-b border-slate-800/80 mb-2">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                                            <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                                            <span class="text-[10px] text-slate-500 font-mono ml-2">localhost:8000/login</span>
+                                        </div>
+                                        <div class="rounded-xl overflow-hidden bg-slate-950 shadow-inner">
+                                            <img 
+                                                src="${project.image}" 
+                                                alt="Screenshot Asli Login Sistem Distribusi MBG" 
+                                                class="w-full h-auto object-cover filter contrast-[1.02]"
+                                            >
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-slate-400 mt-4 text-center">
+                                        Tampilan antarmuka login autentikasi multi-peran (Admin, Petugas Kurir, dan Sekolah).
+                                    </p>
+                                </div>
+
+                                <!-- Kolom Kanan: Uraian Mendalam & Stack Pembuatan -->
+                                <div class="lg:col-span-7 space-y-6">
+                                    <div>
+                                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Ikhtisar & Deskripsi Sistem:</h4>
+                                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                            ${project.description}
+                                        </p>
+                                    </div>
+
+                                    <!-- Tools & Teknologi Pembuatan -->
+                                    <div>
+                                        <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2.5">Tools & Arsitektur yang Digunakan Saat Pembuatan:</h4>
+                                        <div class="flex flex-wrap gap-2">
+                                            ${toolsBadges}
+                                        </div>
+                                    </div>
+
+                                    <!-- Modul & Fitur Kunci Sistem -->
+                                    <div>
+                                        <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-2.5">Arsitektur Fungsional & Logika Bisnis:</h4>
+                                        <div class="grid sm:grid-cols-2 gap-2.5">
+                                            ${featureItems}
+                                        </div>
+                                    </div>
+
+                                    <!-- Tombol Link Repositori -->
+                                    <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-3">
+                                        <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-750 text-white font-semibold rounded-xl text-xs border border-slate-700 hover:border-slate-500 transition shadow-md">
+                                            <i data-lucide="github" class="w-4 h-4"></i>
+                                            <span>Inspeksi Repositori GitHub</span>
+                                        </a>
+                                        <a href="#achievements" class="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 font-semibold rounded-xl text-xs border border-indigo-500/30 transition">
+                                            <i data-lucide="shield-check" class="w-4 h-4 text-indigo-400"></i>
+                                            <span>Detail Hak Cipta</span>
+                                        </a>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                     `;
-                    container.innerHTML += card;
+                    container.innerHTML = showcaseHtml;
                 });
+
                 lucide.createIcons();
             })
             .catch(err => {
                 console.error("Gagal memuat proyek:", err);
-                document.getElementById('projects-container').innerHTML = '<p class="text-red-400 text-center col-span-2">Gagal memuat data proyek. Pastikan server.js sudah memiliki endpoint /api/projects.</p>';
+                const container = document.getElementById('projects-container');
+                container.innerHTML = '<p class="text-rose-400 text-center">Gagal memuat data sistem dari REST API.</p>';
             });
     </script>
 </body>
